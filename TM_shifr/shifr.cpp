@@ -9,14 +9,14 @@ string chifr::encrypt(string in, const int kluch)
     int array_size = in.length();
     int array_height = (array_size/kluch) + ((array_size%kluch > 0) ? 1 : 0);
     int lower_string_lenght = in.length()%kluch;
-    int zvezdi = (lower_string_lenght > 0) ? kluch - lower_string_lenght : 0;
+    int zv = (lower_string_lenght > 0) ? kluch - lower_string_lenght : 0;
 
     char ** matr= new char*[array_height];
     for (int i =0; i<array_height; i++) matr[i] = new char[kluch];
 
     string output;
 
-    for (int i = 0; i <zvezdi; i++) {
+    for (int i = 0; i <zv; i++) {
         matr[array_height-1][(kluch-1)-i] = '*';
     }
     int charId = 0;
@@ -46,7 +46,7 @@ string chifr::decrypt(string in, const int kluch)
 {
     int array_height = (in.length()/kluch) + ((in.length()%kluch > 0) ? 1 : 0);
     int lower_string_lenght = in.length()%kluch;
-    int zvezdi = (lower_string_lenght > 0) ? kluch - lower_string_lenght : 0;
+    int zv = (lower_string_lenght > 0) ? kluch - lower_string_lenght : 0;
 
     char ** matrix = new char*[array_height];
     for (int i =0; i<array_height; i++) matrix[i] = new char[kluch];
